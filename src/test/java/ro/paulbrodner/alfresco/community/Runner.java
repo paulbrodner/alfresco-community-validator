@@ -1,9 +1,7 @@
-package ro.paulbrodner;
+package ro.paulbrodner.alfresco.community;
 
 import org.testng.TestListenerAdapter;
 import org.testng.TestNG;
-
-import ro.paulbrodner.alfresco.community.SmokeTest;
 
 /**
  * @author paul.brodner
