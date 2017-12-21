@@ -1,0 +1,118 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+
+	<groupId>ro.paulbrodner</groupId>
+	<artifactId>alfresco-community-validator</artifactId>
+	<version>0.0.1-SNAPSHOT</version>
+	<packaging>jar</packaging>
+
+	<name>alfresco-community-validator</name>
+	<url>https://github.com/paulbrodner/alfresco-community-validator</url>
+
+	<developers>
+		<developer>
+			<name>Paul Brodner</name>
+			<email>paul.brodner@gmail.com</email>
+			<url>https://paulbrodner.github.io</url>
+		</developer>
+	</developers>
+
+	<licenses>
+		<license>
+			<name>MIT License</name>
+			<url>https://raw.githubusercontent.com/paulbrodner/alfresco-community-validator/5.2.N/LICENSE</url>
+		</license>
+	</licenses>
+
+	<scm>
+		<connection>scm:git:https://github.com/paulbrodner/alfresco-community-validator.git</connection>
+		<developerConnection>scm:git:https://github.com/paulbrodner/alfresco-community-validator.git</developerConnection>
+		<url>${project.url}</url>
+		<tag>5.2.N-0.0.1</tag>
+	</scm>
+
+	<issueManagement>
+		<system>Github</system>
+		<url>https://github.com/paulbrodner/alfresco-community-validator/issues</url>
+	</issueManagement>	 
+
+	<properties>
+		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+		<testNG.version>6.9.10</testNG.version>
+		<rest-assured.version>2.9.0</rest-assured.version>
+		<javax-json.version>1.1.2</javax-json.version>
+		<maven-assembly.version>3.1.0</maven-assembly.version>
+		<maven-jar.version>3.0.2</maven-jar.version>
+		<maven-compiler-plugin.version>3.7.0</maven-compiler-plugin.version>
+	</properties>
+
+	<dependencies>
+		<dependency>
+			<groupId>org.testng</groupId>
+			<artifactId>testng</artifactId>
+			<version>${testNG.version}</version>
+			<scope>test</scope>
+		</dependency>
+
+		<dependency>
+			<groupId>com.jayway.restassured</groupId>
+			<artifactId>rest-assured</artifactId>
+			<version>${rest-assured.version}</version>
+		</dependency>
+
+		<dependency>
+			<groupId>org.glassfish</groupId>
+			<artifactId>javax.json</artifactId>
+			<version>${javax-json.version}</version>
+		</dependency>
+	</dependencies>
+	<build>
+		<plugins>
+			<!-- generate a fat jar -->
+			<plugin>
+				<artifactId>maven-assembly-plugin</artifactId>
+				<version>${maven-assembly.version}</version>
+				<configuration>
+					<descriptors>
+						<descriptor>src/assembly/assembly.xml</descriptor>
+					</descriptors>
+				</configuration>
+				<executions>
+					<execution>
+						<id>make-assembly</id>
+						<phase>package</phase>
+						<goals>
+							<goal>single</goal>
+						</goals>
+						<configuration>
+							<archive>
+								<manifest>
+									<mainClass>ro.paulbrodner.Runner</mainClass>
+								</manifest>
+							</archive>
+						</configuration>
+					</execution>
+				</executions>
+			</plugin>
+
+			<plugin>
+				<artifactId>maven-release-plugin</artifactId>
+				<configuration>
+					<autoVersionSubmodules>true</autoVersionSubmodules>					
+					<tagNameFormat>5.2.N-@{project.version}</tagNameFormat>
+					<releaseVersion>${tagNameFormat}</releaseVersion>
+				</configuration>
+			</plugin>
+
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-compiler-plugin</artifactId>
+				<version>${maven-compiler-plugin.version}</version>
+				<configuration>
+					<source>1.8</source>
+					<target>1.8</target>
+				</configuration>
+			</plugin>
+		</plugins>
+	</build>
+</project>
