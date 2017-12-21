@@ -3,8 +3,7 @@
 
 	<groupId>ro.paulbrodner</groupId>
 	<artifactId>alfresco-community-validator-${uat.version}</artifactId>
-	<version>0.0.1-SNAPSHOT</version>
-	<!-- <version>0.0.1-${uat.version}-SNAPSHOT</version> -->
+	<version>0.0.1-SNAPSHOT</version>	
 	<packaging>jar</packaging>	
 	<name>alfresco-community-validator</name>
 	<url>https://github.com/paulbrodner/alfresco-community-validator</url>
