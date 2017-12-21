@@ -3,7 +3,7 @@
 
 	<groupId>ro.paulbrodner</groupId>
 	<artifactId>alfresco-community-validator</artifactId>
-	<version>0.0.1-${uat.version}-SNAPSHOT</version>
+	<version>0.0.1-SNAPSHOT</version>
 	<packaging>jar</packaging>	
 	<name>alfresco-community-validator</name>
 	<url>https://github.com/paulbrodner/alfresco-community-validator</url>
@@ -35,8 +35,7 @@
 		<url>https://github.com/paulbrodner/alfresco-community-validator/issues</url>
 	</issueManagement>	 
 
-	<properties>
-		<uat.version>5.2.N</uat.version>
+	<properties>		
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		<testNG.version>6.9.10</testNG.version>
 		<rest-assured.version>2.9.0</rest-assured.version>
